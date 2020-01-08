@@ -19,6 +19,18 @@ keys.addEventListener('click', e => {
 
     //number keys!
     if(!action){
+      
+      if (
+        displayedNum === '0' ||
+        previousKeyType === 'operator' ||
+        previousKeyType === 'calculate'
+      ) {
+        display.textContent = keyContent
+      } else {
+        display.textContent = displayedNum + keyContent
+      }
+
+
        if(displayedNum === '0' || previousKeyType === 'operator'){
         display.textContent = keyContent;
       } else {
@@ -34,7 +46,7 @@ keys.addEventListener('click', e => {
       const secondValue = displayedNum;
 
       //check for firstValue and operator
-      if(firstValue && operator && previousKeyType !== 'operator'){
+      if(firstValue && operator && previousKeyType !== 'operator' && previousKeyType !== 'calculate'){
         const calcValue = calculate(firstValue, operator, secondValue)
         display.textContent = calcValue;
 
@@ -58,7 +70,7 @@ keys.addEventListener('click', e => {
      //do nothing if string has a dot
       if(!displayedNum.includes('.')){
         display.textContent = displayedNum + '.';
-        if(previousKeyType === 'operator'){
+        if(previousKeyType === 'operator' || previousKeyType === 'calculate'){
           display.textContent = '0.';
         }
       }
