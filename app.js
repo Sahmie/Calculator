@@ -15,7 +15,8 @@ keys.addEventListener('click', e => {
     Array.from(key.parentNode.children)
       .forEach(k => k.classList.remove('is-depressed'));
 
-
+  
+    
 
     //number keys!
     if(!action){
@@ -83,6 +84,14 @@ keys.addEventListener('click', e => {
       display.textContent = 0
       calculator.dataset.previousKeyType = 'clear';
     }
+
+    //change AC to CE
+    if(action !== 'clear'){
+      const clearButton = calculator.querySelector('[data-action=clear]');
+      clearButton.textContent = 'CE'
+
+    }
+
 
 
     //equals key!
