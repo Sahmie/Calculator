@@ -30,7 +30,7 @@ keys.addEventListener('click', e => {
     }
 
     //operator keys
-    if(action === 'add' || action === 'subtract' ||action === 'multiply' || action === 'divide') {
+    if(action === 'add' || action === 'subtract' ||   action === 'multiply' || action === 'divide') {
       key.classList.add('is-depressed')
       calculator.dataset.previousKeyType = 'operator';
       calculator.dataset.firstValue = displayedNum;
@@ -42,10 +42,15 @@ keys.addEventListener('click', e => {
     //decimal key
     if(action === 'decimal'){
      //do nothing if string has a dot
-    if(!displayedNum.includes('.')){
-      display.textContent = displayedNum + '.';
-    }
-    calculate.dataset.previousKeyType = 'decimal';
+      if(!displayedNum.includes('.')){
+        display.textContent = displayedNum + '.';
+        if(previousKeyType === 'operator'){
+          display.textContent = '0.';
+          alert(previousKeyType)
+        }
+      }
+      calculator.dataset.previousKeyType = 'decimal';
+      alert(previousKeyType)
     }
 
 
