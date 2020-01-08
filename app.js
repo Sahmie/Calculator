@@ -4,8 +4,6 @@ const display = document.querySelector('.calculator__display');
 
 
 
-
-
 keys.addEventListener('click', e => {
   if (e.target.matches('button')) {
     const key = e.target;
@@ -31,7 +29,7 @@ keys.addEventListener('click', e => {
 
     //operator keys
     if(action === 'add' || action === 'subtract' ||   action === 'multiply' || action === 'divide') {
-      key.classList.add('is-depressed')
+      key.classList.add('is-depressed');
       calculator.dataset.previousKeyType = 'operator';
       calculator.dataset.firstValue = displayedNum;
       calculator.dataset.operator = action;
@@ -89,3 +87,4 @@ keys.addEventListener('click', e => {
   }
   return result;
  }
+

@@ -153,6 +153,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+
 .calculator__keys > * {
   background-color: #fff;
   padding: 0.5em 1.25em;
@@ -182,4 +183,8 @@ body {
   background-image: linear-gradient(to bottom, #fe886a, #ff7033);
   grid-column: -2;
   grid-row: 2 / span 4;
+}
+
+.is-depressed{
+  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
 }
