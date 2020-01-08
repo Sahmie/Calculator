@@ -27,7 +27,6 @@ keys.addEventListener('click', e => {
         display.textContent = displayedNum + keyContent;
       }
       calculator.dataset.previousKeyType = 'number';
-      console.log('number key!');
     }
 
     //operator keys
@@ -36,34 +35,39 @@ keys.addEventListener('click', e => {
       calculator.dataset.previousKeyType = 'operator';
       calculator.dataset.firstValue = displayedNum;
       calculator.dataset.operator = action;
-      console.log('operator key!')
     }
     
 
 
     //decimal key
     if(action === 'decimal'){
+     //do nothing if string has a dot
+    if(!displayedNum.includes('.')){
       display.textContent = displayedNum + '.';
-      console.log('decimal key!');
+    }
+    calculate.dataset.previousKeyType = 'decimal';
     }
 
 
     //clear key
     if(action === 'clear'){
-      console.log('clear key!');
-      
+      display.textContent = 0
+      calculator.dataset.previousKeyType = 'clear';
     }
 
 
     //equals key!
     if(action === 'calculate'){
+      calculator.dataset.previousKeyType = 'calculate';
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
       
       display.textContent = calculate(firstValue, operator, secondValue)
-      console.log('equal key!');  
+      
     }
+
+    
   }
  })
 
