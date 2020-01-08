@@ -29,9 +29,25 @@ keys.addEventListener('click', e => {
 
     //operator keys
     if(action === 'add' || action === 'subtract' ||   action === 'multiply' || action === 'divide') {
+      const firstValue = calculator.dataset.firstValue;
+      const operator = calculator.dataset.operator;
+      const secondValue = displayedNum;
+
+      //check for firstValue and operator
+      if(firstValue && operator && previousKeyType !== 'operator'){
+        const calcValue = calculate(firstValue, operator, secondValue)
+        display.textContent = calcValue;
+
+        //update calculated value as firstValue
+        calculator.dataset.firstValue = calcValue;
+      }else{
+        //if there are no calculations, set displayNum as the firstvalue
+        calculator.dataset.firstValue = displayedNum;
+      }
+
       key.classList.add('is-depressed');
       calculator.dataset.previousKeyType = 'operator';
-      calculator.dataset.firstValue = displayedNum;
+      // calculator.dataset.firstValue = displayedNum;
       calculator.dataset.operator = action;
     }
     
