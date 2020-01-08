@@ -46,11 +46,9 @@ keys.addEventListener('click', e => {
         display.textContent = displayedNum + '.';
         if(previousKeyType === 'operator'){
           display.textContent = '0.';
-          alert(previousKeyType)
         }
       }
       calculator.dataset.previousKeyType = 'decimal';
-      alert(previousKeyType)
     }
 
 
