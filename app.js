@@ -14,7 +14,6 @@ keys.addEventListener('click', e => {
 
     Array.from(key.parentNode.children)
       .forEach(k => k.classList.remove('is-depressed'));
-
   
     
 
@@ -29,13 +28,6 @@ keys.addEventListener('click', e => {
         display.textContent = keyContent
       } else {
         display.textContent = displayedNum + keyContent
-      }
-
-
-       if(displayedNum === '0' || previousKeyType === 'operator'){
-        display.textContent = keyContent;
-      } else {
-        display.textContent = displayedNum + keyContent;
       }
       calculator.dataset.previousKeyType = 'number';
     }
@@ -112,7 +104,6 @@ keys.addEventListener('click', e => {
       
       if(firstValue){
         if(previousKeyType === 'calculate'){
-          console.log(secondValue)
           firstValue = displayedNum
           secondValue = calculator.dataset.modValue
         }
@@ -137,3 +128,9 @@ keys.addEventListener('click', e => {
   if (operator === 'divide') return firstNum / secondNum;
 }
 
+
+
+window.addEventListener('keydown', (e) =>{
+
+
+})
