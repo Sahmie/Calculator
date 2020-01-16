@@ -81,7 +81,10 @@ keys.addEventListener('click', e => {
       } else{
         key.textContent = 'AC'
       }
-
+        calculator.dataset.firstValue = ''
+        calculator.dataset.modValue = ''
+        calculator.dataset.operator = ''
+        calculator.previousKeyType = ''
       display.textContent = 0
       // key.textContent = 'AC';
       calculator.dataset.previousKeyType = 'clear';
@@ -129,8 +132,3 @@ keys.addEventListener('click', e => {
 }
 
 
-
-window.addEventListener('keydown', (e) =>{
-
-
-})
